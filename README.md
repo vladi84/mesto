@@ -1,6 +1,6 @@
 # Проект: Место
 
-[Ссылка на проект на GitHub Pages]()
+[Ссылка на проект на GitHub Pages](https://vladi84.github.io/mesto/)
 
 ### Обзор
 
