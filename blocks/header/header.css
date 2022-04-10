@@ -3,7 +3,7 @@
     max-width: 880px;
     padding-top: 45px;
     border-bottom: 1px solid rgb(84, 84, 84, .7);
-    height: 80px;
+    min-height: 80px;
 }
 
 
@@ -16,8 +16,9 @@
 
 @media screen and (max-width: 767px) {
     .header {
-        margin-left: 27px;
+        margin-left: 0px;
+        margin-right: 0px;
         padding-top: 28px;
-        height: 55px;
+        min-height: 55px;
     }
 }

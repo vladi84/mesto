@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 
-<body class="pagecolor">
+<body class="root">
     <div class="page">
         <header class="header">
-            <img src="./images/logo-header.png" alt="логотип проекта Место" class="header__logo">
+            <img src="./images/logo-header-svg.svg" alt="логотип проекта Место" class="header__logo">
         </header>
 
         <main>
@@ -21,11 +21,11 @@
                 <div class="profile__info">
                     <div class="profile__name-box">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button"></button>
+                        <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
                     </div>
                     <p class="profile__job">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button" aria-label="Добавить фото"></button>
             </section>
 
             <section class="photos">
@@ -33,43 +33,49 @@
                     <li class="photos__element">
                         <img src="./images/photo-fiolent.jpg" alt='Мыс Фиолент' class="photos__image">
                         <div class="photos__rectangle">
-                            <h2 class="photos__title">Фиолент</h2>
-                            <button class="photos__like-button"></button>
+                            <h2 class="photos__title">ФиолентФиолентФиолент</h2>
+                            <button class="photos__like-button photos__like-button_active" type="button"
+                                aria-label="Поставить лайк"></button>
                         </div>
                     </li>
                     <li class="photos__element">
                         <img src="./images/photo-led.jpg" alt='Лёд Байкала' class="photos__image">
                         <div class="photos__rectangle">
-                            <h2 class="photos__title">Лёд Байкала</h2>
-                            <button class="photos__like-button"></button>
+                            <h2 class="photos__title">Лёд БайкалаФиолентФиолент</h2>
+                            <button class="photos__like-button photos__like-button_active" type="button"
+                                aria-label="Поставить лайк"></button>
                         </div>
                     </li>
                     <li class="photos__element">
                         <img src="./images/photo-sochi.jpg" alt='Кленовый лист' class="photos__image">
                         <div class="photos__rectangle">
-                            <h2 class="photos__title">Кленовый лист</h2>
-                            <button class="photos__like-button"></button>
+                            <h2 class="photos__title">Кленовый листФиолентФиолент</h2>
+                            <button class="photos__like-button photos__like-button_active" type="button"
+                                aria-label="Поставить лайк"></button>
                         </div>
                     </li>
                     <li class="photos__element">
                         <img src="./images/photo-sibir.jpg" alt='Сибирский мох' class="photos__image">
                         <div class="photos__rectangle">
-                            <h2 class="photos__title">Сибирский мох</h2>
-                            <button class="photos__like-button"></button>
+                            <h2 class="photos__title">Сибирский мохФиолентФиолент</h2>
+                            <button class="photos__like-button photos__like-button_active" type="button"
+                                aria-label="Поставить лайк"></button>
                         </div>
                     </li>
                     <li class="photos__element">
                         <img src="./images/photo-sayani.jpg" alt='Саянские горы под снегом' class="photos__image">
                         <div class="photos__rectangle">
-                            <h2 class="photos__title">Саянские горы</h2>
-                            <button class="photos__like-button"></button>
+                            <h2 class="photos__title">Саянские горыФиолентФиолент</h2>
+                            <button class="photos__like-button photos__like-button_active" type="button"
+                                aria-label="Поставить лайк"></button>
                         </div>
                     </li>
                     <li class="photos__element">
                         <img src="./images/photo-baykal.jpg" alt='Вид на Байкал со скалы Скрипер' class="photos__image">
                         <div class="photos__rectangle">
-                            <h2 class="photos__title">Скала Скрипер</h2>
-                            <button class="photos__like-button"></button>
+                            <h2 class="photos__title">Скала СкриперФиолентФиолент</h2>
+                            <button class="photos__like-button photos__like-button_active" type="button"
+                                aria-label="Поставить лайк"></button>
                         </div>
                     </li>
                 </ul>
@@ -82,11 +88,13 @@
 
         <div class="popup">
             <div class="popup__container">
-                <button type="button" class="popup__close-button"></button>
+                <button type="button" class="popup__close-button" aria-label="Закрыть форму ввода"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <form class="popup__form">
-                    <input type="text" class="popup__input-text popup__input-text_username" placeholder="Имя">
-                    <input type="text" class="popup__input-text popup__input-text_userjob" placeholder="О себе">
+                <form class="popup__form" name="popupform">
+                    <input type="text" class="popup__input-text popup__input-text_type_username" placeholder="Имя"
+                        name="popupname">
+                    <input type="text" class="popup__input-text popup__input-text_type_userjob" placeholder="О себе"
+                        name="popupjob">
                     <button type="submit" class="popup__submit-button">Сохранить</button>
                 </form>
             </div>
