@@ -1,10 +1,10 @@
 .photos__like-button_active {
-    background-image: url(../../../images/like-button_active.svg);
+    background-image: url(../../../../images/like-button_active.svg);
     width: 22px;
     height: 19px;
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     margin-right: 20px;
-    padding-bottom: 27px;
+    padding-bottom: 24px;
   }

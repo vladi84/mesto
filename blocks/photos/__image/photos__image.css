@@ -1,3 +1,6 @@
 .photos__image {
     border-radius: 10px 10px 0px 0px;
+    max-height: 282px;
+    min-height: 282px;
+    
 }

@@ -30,56 +30,7 @@
             </section>
 
             <section class="photos">
-                <ul class="photos__elements">
-                    <li class="photos__element">
-                        <img src="./images/photo-fiolent.jpg" alt='Мыс Фиолент' class="photos__image">
-                        <button class="photos__delete-button" type="button" aria-label="Удалить"></button>
-                        <div class="photos__rectangle">
-                            <h2 class="photos__title">ФиолентФиолентФиолент</h2>
-                            <button class="photos__like-button" type="button" aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__element">
-                        <img src="./images/photo-led.jpg" alt='Лёд Байкала' class="photos__image">
-                        <button class="photos__delete-button" type="button" aria-label="Удалить"></button>
-                        <div class="photos__rectangle">
-                            <h2 class="photos__title">Лёд БайкалаФиолентФиолент</h2>
-                            <button class="photos__like-button" type="button" aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__element">
-                        <img src="./images/photo-sochi.jpg" alt='Кленовый лист' class="photos__image">
-                        <button class="photos__delete-button" type="button" aria-label="Удалить"></button>
-                        <div class="photos__rectangle">
-                            <h2 class="photos__title">Кленовый листФиолентФиолент</h2>
-                            <button class="photos__like-button" type="button" aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__element">
-                        <img src="./images/photo-sibir.jpg" alt='Сибирский мох' class="photos__image">
-                        <button class="photos__delete-button" type="button" aria-label="Удалить"></button>
-                        <div class="photos__rectangle">
-                            <h2 class="photos__title">Сибирский мохФиолентФиолент</h2>
-                            <button class="photos__like-button" type="button" aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__element">
-                        <img src="./images/photo-sayani.jpg" alt='Саянские горы под снегом' class="photos__image">
-                        <button class="photos__delete-button" type="button" aria-label="Удалить"></button>
-                        <div class="photos__rectangle">
-                            <h2 class="photos__title">Саянские горыФиолентФиолент</h2>
-                            <button class="photos__like-button" type="button" aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                    <li class="photos__element">
-                        <img src="./images/photo-baykal.jpg" alt='Вид на Байкал со скалы Скрипер' class="photos__image">
-                        <button class="photos__delete-button" type="button" aria-label="Удалить"></button>
-                        <div class="photos__rectangle">
-                            <h2 class="photos__title">Скала СкриперФиолентФиолент</h2>
-                            <button class="photos__like-button" type="button" aria-label="Поставить лайк"></button>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="photos__elements"></ul>
             </section>
         </main>
 
@@ -87,7 +38,7 @@
             <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
         </footer>
 
-        <div class="popup">
+        <div class="popup popup_edit">
             <div class="popup__container">
                 <button type="button" class="popup__close-button" aria-label="Закрыть форму ввода"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
@@ -101,8 +52,38 @@
             </div>
         </div>
 
+        <div class="popup popup_add">
+            <div class="popup__container">
+                <button type="button" class="popup__close-button" aria-label="Закрыть форму ввода"></button>
+                <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form popup__form-add" name="popupform">
+                    <input type="text" class="popup__input-text popup__input-text_type_place" placeholder="Название"
+                        name="popupplace">
+                    <input type="text" class="popup__input-text popup__input-text_type_link"
+                        placeholder="Ссылка на картинку" name="popuplink">
+                    <button type="submit" class="popup__submit-button">Создать</button>
+                </form>
+            </div>
+        </div>
 
+        <div class="popup popup_photos-open">
+            <div class="popup__container-photos">
+                <img src="#" alt="#" class="popup__image">
+                <button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+                <p class="popup__caption"></p>
+            </div>
+        </div>
 
+        <template class="template__photos">
+            <li class="photos__element">
+                <img src="#" alt="#" class="photos__image">
+                <button type="button" class="photos__delete-button" aria-label="Удалить фото"></button>
+                <div class="photos__rectangle">
+                    <h2 class="photos__title"></h2>
+                    <button type="button" class="photos__like-button" aria-label="Оценить фото"></button>
+                </div>
+            </li>
+        </template>
     </div>
 </body>
 
