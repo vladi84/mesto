@@ -107,10 +107,10 @@ modalEditCloseBtn.addEventListener('click', function () {
 });
 
 //Функция добавления фото
-function handleAddNewPhoto(evt) {
+function handleAddnewPhoto(evt) {
   evt.preventDefault();
-  const NewPhoto = createCard({name: modalInputPlaceName.value, link: modalInputLink.value});
-  listContainer.prepend(NewPhoto);
+  const newPhoto = createCard({name: modalInputPlaceName.value, link: modalInputLink.value});
+  listContainer.prepend(newPhoto);
   modalInputPlaceName.value = '';
   modalInputLink.value = '';
   closeModalWindow(modalWindowAdd);
@@ -126,5 +126,5 @@ modalAddCloseBtn.addEventListener('click', function () {
 });
 
 //Слушатели событий сабмита
-modalWindowAdd.addEventListener('submit', handleAddNewPhoto);
+modalWindowAdd.addEventListener('submit', handleAddnewPhoto);
 modalForm.addEventListener('submit', handleEditProfile);
