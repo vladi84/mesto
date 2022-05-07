@@ -1,4 +1,4 @@
-//Объявили перменные
+// Объявили перменные
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const profileAddBtn = document.querySelector('.profile__add-button');
@@ -23,11 +23,11 @@ const modalImageBoxCloseBtn = modalImageBox.querySelector('.popup__close-button'
 const modalImageOpen = document.querySelector('.popup__image');
 const modalImagetext = document.querySelector('.popup__caption');
 
-//Объявили перменные для функции авто-добавления
+// Объявили перменные для функции авто-добавления
 const listContainer = document.querySelector('.photos__elements');
 const template = document.querySelector('.template__photos');
 
-//Функция создания и добавления фото на страницу
+// Функция создания и добавления фото на страницу
 function renderPhotos() {
   const html = initialCards.map(createCard);
   listContainer.append(...html);
@@ -60,26 +60,46 @@ function createCard(item) {
 
 renderPhotos();
 
-//Функция лайка фото
+// Функция лайка фото
 function handleLikePhoto(evt) {
   const boxLi = evt.target.closest('.photos__element');
   const elementHeart = boxLi.querySelector('.photos__like-button');
   elementHeart.classList.toggle('photos__like-button_active');
 }
 
-//Функция удаления фото
+// Функция удаления фото
 function handleDeletePhoto(evt) {
   const elementDelete = evt.target.closest('.photos__element');
   elementDelete.remove();
 }
 
-//Универсальные функции октрытия/закрытия popup, нужно заменить аргумент исходя из необходимости
+// Универсальные функции октрытия/закрытия popup
 function openModalWindow(popup) {
   popup.classList.add('popup_opened');
+  popup.addEventListener('click', handleCloseOverlay);
+  document.addEventListener('keyup', handleCloseEscape);
 }
 
 function closeModalWindow(popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener('click', handleCloseOverlay);
+  document.removeEventListener('keyup', handleCloseEscape);
+}
+
+// Функция закрытия через Overlay
+function handleCloseOverlay(evt) {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button'))
+  {
+    closeModalWindow(evt.currentTarget);
+  }
+}
+
+// Функция закрытия через Escape
+function handleCloseEscape(evt) {
+  if (evt.key === 'Escape') {
+    const modalWindow = document.querySelector('.popup_opened');
+    closeModalWindow(modalWindow);
+  }
 }
 
 // Функция закрытия окна просмотра фото
@@ -87,7 +107,7 @@ function closeModalWindow(popup) {
   closeModalWindow(modalImageBox);
 });
 
-//Функция редактирования профиля
+// Функция редактирования профиля
 function handleEditProfile(evt) {
   evt.preventDefault();
   profileName.textContent = modalInputName.value;
@@ -95,7 +115,7 @@ function handleEditProfile(evt) {
   closeModalWindow(modalWindowEdit);
 }
 
-//Кнопка редактирования профиля
+// Кнопка редактирования профиля
 profilEditBtn.addEventListener('click', function() {
   modalInputJob.value = profileJob.textContent
   modalInputName.value = profileName.textContent
@@ -106,7 +126,7 @@ modalEditCloseBtn.addEventListener('click', function () {
   closeModalWindow(modalWindowEdit);
 });
 
-//Функция добавления фото
+// Функция добавления фото
 function handleAddnewPhoto(evt) {
   evt.preventDefault();
   const newPhoto = createCard({name: modalInputPlaceName.value, link: modalInputLink.value});
@@ -116,7 +136,7 @@ function handleAddnewPhoto(evt) {
   closeModalWindow(modalWindowAdd);
 }
 
-//Кнопка добавления фото
+// Кнопка добавления фото
 profileAddBtn.addEventListener('click', function () {
   openModalWindow(modalWindowAdd);
 });
