@@ -8,15 +8,15 @@ const modalWindowEdit = document.querySelector('.popup_edit');
 const modalEditCloseBtn = modalWindowEdit.querySelector('.popup__close-button');
 
 const modalForm = document.querySelector('.popup__form');
-const modalInputName = document.querySelector('.popup__input-text_type_username');
-const modalInputJob = document.querySelector('.popup__input-text_type_userjob');
+const modalInputName = document.querySelector('.popup__input_username');
+const modalInputJob = document.querySelector('.popup__input_userjob');
 
 const modalWindowAdd = document.querySelector('.popup_add');
 const modalAddCloseBtn = modalWindowAdd.querySelector('.popup__close-button');
 
 const modalFormAdd = document.querySelector('.popup__form-add');
-const modalInputPlaceName = document.querySelector('.popup__input-text_type_place');
-const modalInputLink = document.querySelector('.popup__input-text_type_link');
+const modalInputPlaceName = document.querySelector('.popup__input_place');
+const modalInputLink = document.querySelector('.popup__input_link');
 
 const modalImageBox = document.querySelector('.popup_photos-open');
 const modalImageBoxCloseBtn = modalImageBox.querySelector('.popup__close-button');
