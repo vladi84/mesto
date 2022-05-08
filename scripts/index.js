@@ -4,21 +4,22 @@ const profileJob = document.querySelector('.profile__job');
 const profileAddBtn = document.querySelector('.profile__add-button');
 const profilEditBtn = document.querySelector('.profile__edit-button');
 
-const modalWindowEdit = document.querySelector('.popup_edit');
+const everyPopup = document.querySelectorAll('.popup')
+const modalWindowEdit = document.querySelector('.popup_type_profile-edit');
 const modalEditCloseBtn = modalWindowEdit.querySelector('.popup__close-button');
 
 const modalForm = document.querySelector('.popup__form');
 const modalInputName = document.querySelector('.popup__input_username');
 const modalInputJob = document.querySelector('.popup__input_userjob');
 
-const modalWindowAdd = document.querySelector('.popup_add');
+const modalWindowAdd = document.querySelector('.popup_type_add-photo');
 const modalAddCloseBtn = modalWindowAdd.querySelector('.popup__close-button');
+const submitBtn = modalWindowAdd.querySelector('.popup__submit-button');
 
-const modalFormAdd = document.querySelector('.popup__form-add');
 const modalInputPlaceName = document.querySelector('.popup__input_place');
 const modalInputLink = document.querySelector('.popup__input_link');
 
-const modalImageBox = document.querySelector('.popup_photos-open');
+const modalImageBox = document.querySelector('.popup_type_photos-open');
 const modalImageBoxCloseBtn = modalImageBox.querySelector('.popup__close-button');
 const modalImageOpen = document.querySelector('.popup__image');
 const modalImagetext = document.querySelector('.popup__caption');
@@ -62,9 +63,7 @@ renderPhotos();
 
 // Функция лайка фото
 function handleLikePhoto(evt) {
-  const boxLi = evt.target.closest('.photos__element');
-  const elementHeart = boxLi.querySelector('.photos__like-button');
-  elementHeart.classList.toggle('photos__like-button_active');
+  evt.target.classList.toggle('photos__like-button_active');
 }
 
 // Функция удаления фото
@@ -76,23 +75,25 @@ function handleDeletePhoto(evt) {
 // Универсальные функции октрытия/закрытия popup
 function openModalWindow(popup) {
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', handleCloseOverlay);
   document.addEventListener('keyup', handleCloseEscape);
 }
 
 function closeModalWindow(popup) {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('click', handleCloseOverlay);
   document.removeEventListener('keyup', handleCloseEscape);
 }
 
 // Функция закрытия через Overlay
-function handleCloseOverlay(evt) {
-  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button'))
-  {
-    closeModalWindow(evt.currentTarget);
-  }
+function handleCloseOverlay(popup) {
+  popup.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close-button')) {
+    closeModalWindow(evt.currentTarget); }
+  });
 }
+
+everyPopup.forEach((popup) => {
+  handleCloseOverlay(popup);
+});
 
 // Функция закрытия через Escape
 function handleCloseEscape(evt) {
@@ -117,8 +118,8 @@ function handleEditProfile(evt) {
 
 // Кнопка редактирования профиля
 profilEditBtn.addEventListener('click', function() {
-  modalInputJob.value = profileJob.textContent
-  modalInputName.value = profileName.textContent
+  modalInputJob.value = profileJob.textContent;
+  modalInputName.value = profileName.textContent;
   openModalWindow(modalWindowEdit);
 });
 
@@ -131,17 +132,18 @@ function handleAddnewPhoto(evt) {
   evt.preventDefault();
   const newPhoto = createCard({name: modalInputPlaceName.value, link: modalInputLink.value});
   listContainer.prepend(newPhoto);
-  modalInputPlaceName.value = '';
-  modalInputLink.value = '';
+  evt.target.reset();
   closeModalWindow(modalWindowAdd);
 }
 
-// Кнопка добавления фото
+// Кнопка добавления фото и блокировка кнопки
 profileAddBtn.addEventListener('click', function () {
+  disableSubmitButton(submitBtn, configData.inactiveButtonClass);
+  resetForm(modalWindowAdd, configData, disableSubmitButton);
   openModalWindow(modalWindowAdd);
 });
 
-modalAddCloseBtn.addEventListener('click', function () {
+modalAddCloseBtn.addEventListener('click', function () {  
   closeModalWindow(modalWindowAdd);
 });
 

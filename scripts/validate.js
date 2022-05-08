@@ -85,4 +85,13 @@ function hideInputError(formElement, inputElement, redLine, errorVisible) {
   errorElement.textContent = '';
 }
 
+// Функция сброса формы
+function resetForm(popup, configdata) {
+  const inputList = Array.from(popup.querySelectorAll(configdata.inputSelector));
+  const formElement = popup.querySelector(configdata.formSelector);
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, configdata.inputErrorClass, configdata.errorClass);
+  });
+}
+
 enableValidation(configData);
