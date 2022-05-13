@@ -139,11 +139,11 @@ function handleAddnewPhoto(evt) {
 // Кнопка добавления фото и блокировка кнопки
 profileAddBtn.addEventListener('click', function () {
   disableSubmitButton(submitBtn, configData.inactiveButtonClass);
-  resetForm(modalWindowAdd, configData, disableSubmitButton);
+  resetForm(modalWindowAdd, configData);
   openModalWindow(modalWindowAdd);
 });
 
-modalAddCloseBtn.addEventListener('click', function () {  
+modalAddCloseBtn.addEventListener('click', function () {
   closeModalWindow(modalWindowAdd);
 });
 
